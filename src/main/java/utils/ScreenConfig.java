@@ -1,14 +1,14 @@
-package com.example;
+package utils;
 
 import java.awt.GraphicsEnvironment;
 import java.awt.HeadlessException;
 import java.awt.Rectangle;
 
 public class ScreenConfig {
-  private int usableWidth;
-  private int usableHeight;
+  private final int usableWidth;
+  private final int usableHeight;
 
-  ScreenConfig() throws HeadlessException {
+  public ScreenConfig() throws HeadlessException {
 
     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();// get the local GraphicsEnvironment
     Rectangle maxWindowsBounds = ge.getMaximumWindowBounds();
