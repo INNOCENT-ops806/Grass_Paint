@@ -1,2 +1,6 @@
 target/
-src/test/
+.settings/
+*.class
+*.jar
+.classpath
+.project
