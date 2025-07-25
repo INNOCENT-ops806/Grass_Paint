@@ -70,7 +70,7 @@ public class MenuHandler {
 
     // Settings for menuBar
     menuBar.setFont(new Font(Constants.default_font_family, Constants.font_style, Constants.default_font_size));
-    menuBar.setForeground(Color.ORANGE);
+    menuBar.setForeground(Constants.default_text_color);
 
     // Add the component to viewMenu
     helpMenu.setFont(new Font(Constants.default_font_family, Constants.font_style, Constants.default_font_size));

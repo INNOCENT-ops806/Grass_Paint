@@ -11,6 +11,8 @@ public class Constants {
 
   // made-up colors
   public final static Color light_blue = new Color(230, 240, 255);
+  public final static Color purple = new Color(230, 170, 255);
+  public final static Color dark_blue = new Color(50, 50, 255);
 
   /*
    * Grouped by data type --> :-)

@@ -4,6 +4,8 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -66,6 +68,9 @@ public class ActionHandler implements ActionListener {
         break;
       case "Paste":
         handlePasteAction();
+        break;
+      case "Save":
+        handleSaveAction();
         break;
       default:
         System.out.println("Unhandled action command: " + command);
@@ -142,7 +147,34 @@ public class ActionHandler implements ActionListener {
     setNewContentLabel(tempLabel);
     setImageIcon(imageIcon);
     contentPanel.add(newContentLabel);
+    contentPanel.setVisible(true);
     contentPanel.revalidate();
     contentPanel.repaint();
+  }
+
+  private void handleSaveAction() {
+    System.out.println("The save button has been pressed");
+    JFileChooser chooser = new JFileChooser();
+    FileNameExtensionFilter filter = new FileNameExtensionFilter("Image Files", "jpg", "jpeg", "png");
+    chooser.setFileFilter(filter);
+    int returnVal = chooser.showSaveDialog(null);
+
+    switch (returnVal) {
+      case JFileChooser.APPROVE_OPTION -> {
+        try {
+          FileWriter file = new FileWriter(chooser.getSelectedFile());
+          file.close();
+        } catch (IOException e) {
+          System.out.println("An error occured: " + e.getMessage());
+          e.printStackTrace();
+        }
+      }
+      case JFileChooser.CANCEL_OPTION -> {
+        JOptionPane.showConfirmDialog(null, "Pressed cancel", "Exiting saving file", JOptionPane.OK_OPTION,
+            JOptionPane.INFORMATION_MESSAGE);// bruv this is entirely uneccessary just doing for the sake of testing
+      }
+      default -> JOptionPane.showConfirmDialog(null, "An unexpected error occured", "Error", JOptionPane.OK_OPTION,
+          JOptionPane.ERROR_MESSAGE);
+    }
   }
 }

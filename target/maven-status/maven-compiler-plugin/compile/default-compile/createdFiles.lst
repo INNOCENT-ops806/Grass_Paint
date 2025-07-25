@@ -1,3 +1,6 @@
-com/example/ScreenConfig.class
-com/example/MyFrame.class
 com/example/App.class
+utils/Constants.class
+com/example/MenuHandler.class
+com/example/ActionHandler.class
+com/example/MainWindow.class
+utils/ScreenConfig.class
